@@ -58,6 +58,7 @@ public class Main {
                 compressedString += stringToCompress.charAt(i + 1);
             }
         }
+        compressedString+=String.valueOf(count);
         return compressedString;
     }
 
@@ -92,7 +93,7 @@ public class Main {
                 duplication += compressedString.charAt(i);
             if ((i == len - 1) ||
                     ((compressedString.charAt(i) >= '0' && compressedString.charAt(i) <= '9')
-                            && (compressedString.charAt(i + 1) >= '9' || compressedString.charAt(i + 1) <= '0'))) {
+                            && (compressedString.charAt(i + 1) > '9' || compressedString.charAt(i + 1) < '0'))) {
                 int duplicatitonNum = Integer.parseInt(String.valueOf(duplication));
                 decompressedString += duplicatedString(currentToDecompress, duplicatitonNum);
                 currentToDecompress = "";
